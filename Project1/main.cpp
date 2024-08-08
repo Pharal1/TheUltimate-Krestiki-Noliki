@@ -84,14 +84,15 @@ char checkWhoWin(char mass[3][3], char turn) {
 int main() {
     isGame = true;
     turn = 'X';
+    string input;
 
     while (isGame) {
         render(mass);
         int row;
         int column;
-        cout << "Enter the row to insert X: ";
+        cout << "Enter the row to insert " << turn << ": ";
         cin >> row;
-        cout << "Enter the column to insert X: ";
+        cout << "Enter the column to insert " << turn << ": ";
         cin >> column;
 
         if (!isTileEmpty(row - 1, column - 1)) {
@@ -106,5 +107,8 @@ int main() {
         changeTurn(turn);
     }
     render(mass);
+    cout << "press any key to exit" << endl;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin.get();
     return err;
 }
